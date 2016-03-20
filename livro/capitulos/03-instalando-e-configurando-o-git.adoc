@@ -1,0 +1,54 @@
+== Instalando e configurando o Git
+
+=== Instalando
+
+Estando no shell da box criada, para instalar o Git, execute:
+----
+sudo dnf -y install git
+----
+
+Confira a versão do Git que foi instalada:
+----
+git --version
+----
+
+Deverá ser esta (ou superior):
+----
+git version 2.5.0
+----
+
+=== Pedindo um help
+
+Vá para o seu diretório +$HOME+ e, em seguida, solicite a ajuda do git para saber os comandos disponíveis:
+----
+cd && git help
+----
+
+Digite o comando abaixo e leia o que comando +git config+ faz:
+----
+git help config
+----
+
+
+=== Configurando o básico
+
+Execute os comandos abaixo substituindo o meu nome e email pelas tuas informações. Estes comandos criarão o arquivo +~/.gitconfig+:
+----
+git config --global user.name "Paulo Jerônimo"
+git config --global user.email "pj@paulojeronimo.info"
+----
+
+Veja o conteúdo do seu arquivo (+.gitignore+) após a execução dos comandos acima:
+----
+cat .gitconfig 
+----
+
+Em minha execução, a saída do comando abaixo apresenta este conteúdo:
+----
+[user]
+   name = Paulo Jerônimo
+   email = pj@paulojeronimo.info
+----
+
+// vim: set syntax=asciidoc:
+

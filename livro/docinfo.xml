@@ -1,0 +1,29 @@
+<edition>{edition}</edition>
+
+<revhistory>
+
+  <revision>
+    <revnumber>v0.1.0</revnumber>
+    <date>Março, 2016</date>
+    <authorinitials>Paulo Jerônimo</authorinitials>
+    <revremark>
+      Primeira versão do livro.
+    </revremark>
+  </revision>
+  
+</revhistory>
+
+<authorgroup>
+  <author>
+    <firstname>Nome</firstname>
+    <surname>Sobrenome</surname>
+  </author>
+</authorgroup>
+
+<othercredit>
+    <firstname>Paulo</firstname>
+    <surname>Jerônimo</surname>
+    <othername>PJ</othername>
+  <contrib>Editor</contrib>
+</othercredit>
+

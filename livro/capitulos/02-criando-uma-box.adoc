@@ -1,0 +1,118 @@
+== Construindo o ambiente para a execução dos comandos deste livro
+
+=== Instalando o VirtualBox
+
+Para que você possa executar os comandos deste livro da mesma forma que eu o faço, você precisará de uma máquina virtual com o Linux Fedora 23 instalado.
+
+Neste livro, eu utilizo o http://virtualbox.org[VirtualBox] para fazer o gerenciamento de máquinas virtuais. Antes de prosseguir, siga os procedimentos de instalação dessa ferramenta para o teu sistema operacional.
+
+Para exemplificar, os subtópicos a seguir referenciam vídeos que demonstram a instalação do VirtualBox em alguns sistemas operacionais.
+
+==== No Windows
+
+TODO
+
+==== No Fedora
+
+TODO
+
+==== No OS X
+
+TODO
+
+=== Instalando o Vagrant
+
+A forma mais simples e rápida de se gerenciar uma máquina virtual (criando, instalando e configurando pacotes e arquivos do sistema, etc) em diferentes ferramentas de virtualização (VirtualBox, http://vmware.com[VMware], http://www.linux-kvm.org[KVM], http://www.parallels.com[Parallels], etc) é através do Vagrant.
+
+Antes de prosseguir, faça a instalação do Vagrant conforme os https://www.vagrantup.com/docs/installation/[procedimentos] necessários para o teu sistema operacional.
+
+Para exemplificar, os subtópicos a seguir referenciam vídeos que demonstram a instalação do Vagrant em alguns sistemas operacionais.
+
+==== No Windows
+
+TODO
+
+==== No Fedora
+
+TODO
+
+==== No OS X
+
+TODO
+
+=== Construindo, acessando e configurando a box Vagrant
+
+==== Construindo
+
+Após ter instalado o Vagrant, crie um diretório chamado +git-box+ e, dentro dele, crie um arquivo +VagrantFile+ com o seguinte conteúdo:
+
+----
+Vagrant.configure(2) do |config|
+  config.vm.box = "boxcutter/fedora23"
+  ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
+  config.vbguest.auto_update = false
+end
+----
+
+Em seguida, estando dentro do diretório +git-box+, inicie a box:
+----
+vagrant up
+----
+
+==== Acessando e configurando
+
+Acesse o shell da box:
+----
+vagrant ssh
+----
+
+Já no shell da box, execute o seguinte comando:
+----
+cat << 'EOF' | bash
+for f in fedora fedora-updates
+do
+    echo "Configurando o arquivo /etc/yum.repos.d/${f}.repo ..."
+    sudo sed '
+        s,^\(metalink=\),#\1,g
+        s,^#\(baseurl=\)http://download.fedoraproject.org/pub/fedora,\1http://fedora.c3sl.ufpr.br,g
+    ' -i /etc/yum.repos.d/${f}.repo
+done
+EOF
+----
+
+Os comandos acima configuram o gerenciador de pacotes (+dnf+) para utilizar o _mirror_ público do Fedora disponível na UFPR. Isso evita que o Fedora fique tentando descobrir qual _mirror_ está mais próximo de você e, consequentemente, seja mais rápido na instalação dos pacotes. Obviamente, se você estiver fora do Brasil, o comando acima talvez precise ser ajustado! ;)
+
+Para executar alguns comandos apresentados neste livro, será necessária a instalação de alguns pacotes. Faça a instalação desses através do seguinte comando:
+
+----
+sudo dnf -y install tree vim
+----
+
+Algumas variáveis de ambiente deverão estar disponíveis no shell, toda vez que fizermos acesso a ele. Para isso, faremos ajustes no arquivo +~/.bashrc+, conforme o comando a seguir:
+----
+echo -e "export PS1='$ '\nexport TREE_CHARSET=ascii" >> ~/.bashrc
+source ~/.bashrc
+----
+
+Executando os comandos acima sua box estará pronta para a execução dos comandos que virão a seguir, nos próximos tópicos desse livro.
+
+==== Instalando o Asciinema
+
+O http://asciinema.org[Asciinema] é um software que possibilita gravar e reproduzir tudo o que está sendo realizado num shell em execução. No contexto deste livro, ele poderá ser utilizado para reproduzir a tela dos comandos digitados e executados em cada um dos tópicos deste livro.
+
+Para utilizá-lo faça sua instalação:
+
+----
+sudo dnf -y install asciinema
+----
+
+Crie, executando o comando abaixo, uma função que será bastante útil para você visualizar a execução dos comandos apresentados neste livro:
+
+----
+cat >> ~/.bashrc <<'EOF'
+play() { asciinema play /vagrant/livro-git.asciinema/$1
+EOF
+----
+
+// vim: set syntax=asciidoc:
+

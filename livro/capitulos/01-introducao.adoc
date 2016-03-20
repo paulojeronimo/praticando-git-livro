@@ -1,0 +1,26 @@
+== Introdução
+
+=== Sobre este livro
+
+Este livro é, na verdade, um *tutorial prático* _(mão na massa e direto ao ponto)_ para o aprendizado de http://www.git-scm.com[Git]. Com o seu auxílio, você estará praticando o uso do Git num ambiente Linux (http://getfedora.org[Fedora 23]). Talvez também seja possível você executar os mesmos comandos que apresento aqui em outros ambientes: distruições Linux diferentes, Mac OS X, Windows (com o auxílio do Cygwin). Mas, nesse caso, você poderá precisar adaptar os comandos que eu mostrarei aqui.
+
+Siga, passo a passo, a execução dos comandos que eu apresento. Nesse livro , a maioria dos comandos serão digitados em um shell Bash. Para ter maior agilidade, você poderá simplesmente copiar/colar os comandos que apresento aqui, diretamente no teu shell.
+
+Para ter, em tua máquina, o mesmo ambiente (Fedora 23) que eu utilizo para demonstrar o os comandos neste livro, você deverá instalar o https://virtualbox.org[VirtualBox], o https://vagrantup.com[Vagrant] e, por fim, iniciar e configurar uma box (máquina virtual gerenciada pelo Vagrant) contendo esse sistema operacional. Os passos para isso são apresentados no próximo tópico.
+
+*Este livro é GRATUITO. Isso mesmo: você não precisa pagar nada por ele!* Porque? Eu creio que já há muito, muito material mesmo, sobre Git, GitHub e assuntos correlatos, na Internet (veja as referências que cito ao final do livro). Sendo assim, este material é apenas mais um, que utilizo para apresentar os assuntos em questão, a minha maneira, seguindo o uso de ferramentas livres.
+
+O http://github.com/paulojeornimo/livro-praticando-git[código fonte deste livro] também está disponível num repositório hospedado no GitHub. Ele pode ser utilizado para a geração deste livro utilizando o mesmo processo adotado por professores da Universidade Federal da Paraíba (UFPB) para a construção dos https://github.com/ufpb-computacao[livros criados para os cursos de computação dessa instituição]. Este livro segue o template https://github.com/ufpb-computacao/asciidoc-book-template-with-rake-and-github[asciidoc-book-template-with-rake-and-github] podendo, dessa forma, ser construído através do http://producao.virtual.ufpb.br/github.html[site de geração dos livros] que utiliza o http://producao.virtual.ufpb.br/books/edusantana/producao-computacao-ead-ufpb/livro/livro.chunked/index.html[processo especificado pela UFPB]. A construção deste livro também pode ser realizada de maneira off-line, sem acesso ao site da UFPB, pelo uso do projeto https://github.com/paulojeronimo/producao-computacao-ead-ufpb-box[producao-computacao-ead-ufpb-box].
+
+=== Sobre o autor (Paulo Jerônimo)
+
+Neste momento, eu (Paulo Jerônimo) atuo como gerente de projetos na instituição Cebraspe (http://www.cespe.unb.br[Cespe/UnB]). Também sou desenvolvedor, com maior tempo de trabalho utilizando soluções e middleware desenvolvidos em Java e colocados em produção em plataforma Linux. Fora dos horários em que estou trabalhando para o Cebraspe atuo, ainda, como instrutor de cursos oficiais da Red Hat. Mais sobre o meu histórico profissional pode ser encontrado em meu currículo http://j.mp/curriculopj. Meus trabalhos públicos mais recentes estão disponíveis, na minha conta no GitHub, em https://github.com/paulojeronimo.
+
+=== Público alvo
+
+Este livro é para qualquer pessoa que deseje aprender como controlar versões de seus arquivos (código fonte de programas, de documentos, etc), de forma eficaz e eficiente, e trabalhar de forma colaborativa com outras pessoas.
+
+O foco principal desse material está na realização de atividades através de uma linha de comando. Contudo, após aprendendido os conceitos do Git através de seus comandos, fazer uso desses conceitos em ferramentas gráficas torna-se algo muito simples.
+
+// vim: set syntax=asciidoc:
+
