@@ -4,8 +4,7 @@
 
 Vá para o diretório +/vagrant+ e crie o diretório +repo1+ que conterá o primeiro repositório git desse tutorial:
 ----
-cd /vagrant; mkdir repo1 && cd $_
-pwd
+cd /vagrant/; mkdir repo1 && cd $_; pwd
 ----
 
 Inicialize esse repositório:
@@ -971,7 +970,7 @@ A saída desse último comando, entretanto, leva em conta tanto as configuraçõ
 
 Se você, agora, repetir o comando +git difftool+, notará que nada será questionado. Obviamente, outras ferramentas de visualização entre dois arquivos podem ser configuradas.
 
-=== Voltando um arquivo que está no índice para sua última versão no repositório
+=== Visualizando diferenças em arquivos que estão no índice
 
 Adicione o arquivo +EuAluno.txt+ ao índice:
 ----
@@ -1009,6 +1008,7 @@ index eed3ade..534585a 100644
 +Sou atencioso. Aprenderei Git! \o/
 ----
 
+Obviamente, você também pode executar o comando +git difftool+ com o parâmetro +--staged+ (experimente).
 
 === Alterando um arquivo que já foi para o índice
 

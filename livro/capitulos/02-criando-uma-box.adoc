@@ -90,8 +90,7 @@ sudo dnf -y install tree vim
 
 Algumas variáveis de ambiente deverão estar disponíveis no shell, toda vez que fizermos acesso a ele. Para isso, faremos ajustes no arquivo +~/.bashrc+, conforme o comando a seguir:
 ----
-echo -e "export PS1='$ '\nexport TREE_CHARSET=ascii" >> ~/.bashrc
-source ~/.bashrc
+f=~/.bashrc; echo -e "export PS1='$ '\nexport TREE_CHARSET=ascii" >> $f; source $f
 ----
 
 Executando os comandos acima sua box estará pronta para a execução dos comandos que virão a seguir, nos próximos tópicos desse livro.

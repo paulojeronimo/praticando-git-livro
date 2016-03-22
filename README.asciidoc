@@ -1,0 +1,5 @@
+= Livro "Praticando Git"
+
+Este repositório contém o código fonte que gera o PDF do livro "Praticando Git". Para gerar esse PDF, acesse a página http://producao.virtual.ufpb.br/github.html. Em seguida, informe o endereço deste repositório e clique no botão "Gerar PDF, HTML e Slides". O último PDF gerado, utilizando esse procedimento, estará disponível em http://producao.virtual.ufpb.br/books/paulojeronimo/praticando-git-livro/livro/livro.pdf.
+
+O PDF deste livro também pode ser gerado utilizando a máquina virtual que é construída através do projeto https://github.com/paulojeronimo/producao-computacao-ead-ufpb-box[producao-computacao-ead-ufpb-box].
